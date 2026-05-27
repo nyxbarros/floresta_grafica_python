@@ -24,6 +24,8 @@ class Application:
 
         self.shader = None
 
+        self.models = []
+
         self.first_mouse = True
 
         self.lastX = self.width / 2
@@ -174,7 +176,7 @@ class Application:
 
         self.shader.set_matrix4("projection",projection)
 
-        for model in Objetos.set_lista_objetos():
+        for model in self.models:
             model.draw(self.shader)
 
     # ======================================================
@@ -186,6 +188,8 @@ class Application:
         self.init_opengl()
 
         self.init_shader()
+
+        self.models = Objetos.gerar()
 
         last_time = glfw.get_time()
 

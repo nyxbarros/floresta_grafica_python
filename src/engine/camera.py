@@ -1,4 +1,4 @@
-# Camera.py
+# camera.py
 # Gerencia a câmera 3D usando yaw (rotação horizontal) e pitch (rotação vertical)
 #
 # IMPORTANTE:

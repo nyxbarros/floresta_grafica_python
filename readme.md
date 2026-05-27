@@ -1,0 +1,11 @@
+# tarefas
+- [ ] inicializar git
+- [ ] refatorar código
+- [ ] escolher cenário
+- [ ] criar cenário
+- [ ] fazer readme.md
+  - [ ] como rodar
+    - [ ] como usar o requirements.txt
+- [ ] fazer apresentação
+- [ ] botar apresentação no readme.md
+- [ ] subir no github

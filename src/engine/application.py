@@ -12,7 +12,7 @@ from src.engine.camera import Camera
 from src.engine.shader import Shader
 from src.engine.model import Model
 
-# from ..objetos.objetos import Objeto
+from objetos.objetos import Objetos
 
 
 class Application:
@@ -192,73 +192,6 @@ class Application:
         )
 
     # ======================================================
-    # OBJETOS
-    # ======================================================
-
-    def load_models(self):
-
-        # CHIBI
-        chibi = Model(
-            "src/objetos/chibi/chibi.obj",
-            "src/objetos/chibi/chibi.png"
-        )
-
-        escala = pyrr.matrix44.create_from_scale(
-            Vector3([0.4, 0.4, 0.4])
-        )
-
-        translacao = (
-            pyrr.matrix44.create_from_translation(
-                Vector3([-2.0, 0.0, 0.0])
-            )
-        )
-
-        chibi.model_matrix = (
-            pyrr.matrix44.multiply(
-                translacao,
-                escala
-            )
-        )
-
-        self.models.append(chibi)
-
-        # CAT
-        cat = Model(
-            "src/objetos/Cat/Cat.obj",
-            "src/objetos/Cat/Cat_diffuse.jpg"
-        )
-
-        escala = pyrr.matrix44.create_from_scale(
-            Vector3([0.12, 0.12, 0.12])
-        )
-
-        rot_x = (
-            pyrr.matrix44.create_from_x_rotation(
-                np.radians(90)
-            )
-        )
-
-        translacao = (
-            pyrr.matrix44.create_from_translation(
-                Vector3([15.5, -1.5, 0.0])
-            )
-        )
-
-        model = pyrr.matrix44.multiply(
-            rot_x,
-            escala
-        )
-
-        model = pyrr.matrix44.multiply(
-            translacao,
-            model
-        )
-
-        cat.model_matrix = model
-
-        self.models.append(cat)
-
-    # ======================================================
     # INPUT
     # ======================================================
 
@@ -362,7 +295,7 @@ class Application:
 
         self.init_shader()
 
-        self.load_models()
+        self.models = Objetos.gerar()
 
         last_time = glfw.get_time()
 

@@ -14,6 +14,7 @@ class Objetos:
     @classmethod
     def gerar(cls):
         cls.__lista_objetos = [
+            FiguraGeometricaEquilatera(30, [0.0, 0.25, 0.0], 15), # base
             Model( # CHIBI
                 "src/objetos/chibi/chibi.obj",
                 "src/objetos/chibi/chibi.png",
@@ -36,9 +37,4 @@ class Objetos:
                 ],
                 [1.0, 0.0, 0.0]
             ),
-            FiguraGeometricaEquilatera(
-                3,
-                [0.0, 0.25, 0.0],
-                10,
-            )
         ]

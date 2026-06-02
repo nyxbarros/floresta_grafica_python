@@ -1,11 +1,15 @@
 # tarefas
-- [ ] inicializar git
+- [x] inicializar git
 - [ ] refatorar código
 - [ ] escolher cenário
 - [ ] criar cenário
 - [ ] fazer readme.md
   - [ ] como rodar
     - [ ] como usar o requirements.txt
+  - [ ] como botar algo no cenário
+    - [ ] usando .obj e jpg
+    - [ ] usando figuras geométricas 2d no geral
+    - [ ] usando figuras geométricas equilateras
 - [ ] fazer apresentação
 - [ ] botar apresentação no readme.md
 - [ ] subir no github

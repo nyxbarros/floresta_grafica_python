@@ -1,4 +1,4 @@
-from engine.figuras_geometricas import FiguraGeometrica
+from engine.figuras_geometricas import FiguraGeometrica, FiguraGeometricaEquilatera
 from engine.shape import Shape
 from src.engine.model import Model
 
@@ -35,5 +35,10 @@ class Objetos:
                     -0.5, -0.5, 0.0  # v2
                 ],
                 [1.0, 0.0, 0.0]
+            ),
+            FiguraGeometricaEquilatera(
+                3,
+                [0.0, 0.25, 0.0],
+                10,
             )
         ]

@@ -5,8 +5,11 @@ from OpenGL.GL import *
 import pyrr
 
 from engine.camera import Camera
+from engine.color_shader import ColorShader
 
 from engine.shader import Shader
+from engine.shape import Shape
+from engine.textured_shader import TexturedShader
 
 from objetos.objetos import Objetos
 
@@ -14,7 +17,8 @@ from objetos.objetos import Objetos
 class Application:
 
     def __init__(self):
-
+        self.shader_textura = None
+        self.shader_cor = None
         self.width = 800
         self.height = 600
 
@@ -93,48 +97,8 @@ class Application:
     # ======================================================
 
     def init_shader(self):
-
-        vertex_src = """
-        #version 400
-
-        layout(location = 0) in vec3 in_pos;
-        layout(location = 1) in vec2 in_uv;
-
-        uniform mat4 model;
-        uniform mat4 view;
-        uniform mat4 projection;
-
-        out vec2 frag_uv;
-
-        void main()
-        {
-            frag_uv = in_uv;
-
-            gl_Position =
-                projection *
-                view *
-                model *
-                vec4(in_pos, 1.0);
-        }
-        """
-
-        fragment_src = """
-        #version 400
-
-        in vec2 frag_uv;
-
-        uniform sampler2D texture1;
-
-        out vec4 FragColor;
-
-        void main()
-        {
-            FragColor =
-                texture(texture1, frag_uv);
-        }
-        """
-
-        self.shader = Shader(vertex_src, fragment_src)
+        self.shader_textura = TexturedShader()
+        self.shader_cor = ColorShader()
 
     # ======================================================
     # INPUT
@@ -160,22 +124,37 @@ class Application:
 
     def render(self):
 
-        glClearColor(0.1,0.1,0.1,1.0)
-
-        glClear(GL_COLOR_BUFFER_BIT |GL_DEPTH_BUFFER_BIT)
-
-        self.shader.use()
+        glClearColor(0.1, 0.1, 0.1, 1.0)
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
 
         view = self.camera.get_view_matrix()
 
-        projection = pyrr.matrix44.create_perspective_projection_matrix(45.0,self.width / self.height,0.1,100.0)
+        projection = pyrr.matrix44.create_perspective_projection_matrix(
+            45.0,
+            self.width / self.height,
+            0.1,
+            100.0
+        )
 
-        self.shader.set_matrix4("view",view)
+        # Configura shader de textura
+        self.shader_textura.use()
+        self.shader_textura.set_matrix4("view", view)
+        self.shader_textura.set_matrix4("projection", projection)
 
-        self.shader.set_matrix4("projection",projection)
+        # Configura shader de cor
+        self.shader_cor.use()
+        self.shader_cor.set_matrix4("view", view)
+        self.shader_cor.set_matrix4("projection", projection)
 
-        for model in Objetos.set_lista_objetos():
-            model.draw(self.shader)
+        for obj in Objetos.set_lista_objetos():
+
+            if isinstance(obj, Shape):
+                self.shader_cor.use()
+                obj.draw(self.shader_cor)
+
+            else:
+                self.shader_textura.use()
+                obj.draw(self.shader_textura)
 
     # ======================================================
     # LOOP

@@ -1,3 +1,5 @@
+from engine.figuras_geometricas import FiguraGeometrica
+from engine.shape import Shape
 from src.engine.model import Model
 
 class Objetos:
@@ -24,5 +26,14 @@ class Objetos:
                 scale=[0.12, 0.12, 0.12],
                 rotation=[90, 0, 0],
                 translation=[15.5, -1.5, 0.0]
+            ),
+            FiguraGeometrica(
+                [
+                    -0.5,  0.5, 0.0,  # v0
+                    0.5,  0.5, 0.0,  # v1
+                    0.5, -0.5, 0.0,   # v3
+                    -0.5, -0.5, 0.0  # v2
+                ],
+                [1.0, 0.0, 0.0]
             )
         ]

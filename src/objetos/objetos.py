@@ -1,6 +1,5 @@
 from engine.figuras_geometricas import FiguraGeometrica, FiguraGeometricaEquilatera
-from engine.shape import Shape
-from src.engine.model import Model
+from engine.model import Model
 
 class Objetos:
     __lista_objetos = []
@@ -10,16 +9,6 @@ class Objetos:
         if cls.__lista_objetos == []:
             cls.gerar()
         return cls.__lista_objetos
-
-
-
-    '''
-    ANIMAL
-    src/objetos/kenney_cube-pets_1.0
-    '''
-    animal = {
-
-    }
 
     @classmethod
     def gerar(cls):

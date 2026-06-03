@@ -3,8 +3,8 @@ from OpenGL.GL import *
 import ctypes
 import numpy as np
 
-from src.engine.texture_loader import load_texture
-from src.engine.obj_loader_simple import ObjLoaderSimple
+from engine.texture_loader import load_texture
+from engine.obj_loader_simple import ObjLoaderSimple
 
 import pyrr
 import numpy as np

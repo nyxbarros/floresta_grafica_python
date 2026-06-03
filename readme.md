@@ -20,9 +20,7 @@
         - [x] como usar uma venv zerada
           - [x] como usar o requirements.txt
         - [x] como inicializar o programa
-- [ ] fazer apresentação
-- [ ] botar apresentação no readme.md
-- [ ] subir no github
+- [x] subir no github
 
 ## opcional:
 - [ ] fazer camera rodando até o usuário clicar em algo

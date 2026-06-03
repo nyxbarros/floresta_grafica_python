@@ -1,15 +1,36 @@
 # tarefas
 - [x] inicializar git
-- [ ] refatorar código
-- [ ] escolher cenário
+- [x] refatorar código
+- [x] escolher cenário
 - [ ] criar cenário
 - [ ] fazer readme.md
-  - [ ] como rodar
-    - [ ] como usar o requirements.txt
+  - [ ] intro
+  - [ ] ferramentas usadas
+    - [ ] linguagem
+    - [ ] biblioteca
+    - [ ] git
+    - [ ] links de modelos
   - [ ] como botar algo no cenário
     - [ ] usando .obj e jpg
     - [ ] usando figuras geométricas 2d no geral
-    - [ ] usando figuras geométricas equilateras
+    - [ ] usando figuras geométricas equiláteras
+    - [ ] como rodar
+      - [ ] qual pasta tem que estar aberta no terminal 
+      - [ ] comando de terminal
+        - [ ] como usar uma venv zerada
+          - [ ] como usar o requirements.txt
+        - [ ] como inicializar o programa
 - [ ] fazer apresentação
 - [ ] botar apresentação no readme.md
 - [ ] subir no github
+
+## opcional:
+- [ ] fazer camera rodando até o usuário clicar em algo
+- [ ] fazer docstring
+- [ ] transformar a parte da engine num pacote
+  - [ ] separar a inicialização de uma instância da geração da figura
+    - [ ] objetos
+    - [ ] figuras geométricas
+    - [ ] figuras geométricas equilateras
+  - [ ] mandar gerar a figura no Application.run()
+  - [ ] botar a inicialização das instâncias dos objetos na main

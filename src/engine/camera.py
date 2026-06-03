@@ -67,7 +67,7 @@ class Camera:
         # câmera inicia afastada no eixo Z+
         # ==================================================
 
-        self.camera_pos = Vector3([0.0, 4.0, 30.0])
+        self.camera_pos = Vector3([0.0, 25.0, 70.0])
 
 
         # ==================================================
